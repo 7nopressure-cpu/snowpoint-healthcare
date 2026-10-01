@@ -13,11 +13,11 @@ import {
 
 export default function Services() {
   const iconMap: Record<string, React.ReactNode> = {
-    FileCheck: <FileCheck className="w-6 h-6 text-brand-cyan" />,
-    Cpu: <Cpu className="w-6 h-6 text-brand-cyan" />,
-    BarChart3: <BarChart3 className="w-6 h-6 text-brand-cyan" />,
+    FileCheck: <FileCheck className="w-6 h-6 text-brand-royal" />,
+    Cpu: <Cpu className="w-6 h-6 text-brand-royal" />,
+    BarChart3: <BarChart3 className="w-6 h-6 text-brand-royal" />,
     ShieldCheck: <ShieldCheck className="w-6 h-6 text-brand-teal" />,
-    GraduationCap: <GraduationCap className="w-6 h-6 text-brand-cyan" />,
+    GraduationCap: <GraduationCap className="w-6 h-6 text-brand-royal" />,
   };
 
   return (
@@ -26,8 +26,8 @@ export default function Services() {
         
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-bold uppercase tracking-wider">
-            <Sparkles className="w-3.5 h-3.5 text-brand-cyan" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-100 text-brand-royal text-xs font-bold uppercase tracking-wider">
+            <Sparkles className="w-3.5 h-3.5 text-brand-royal" />
             Cartera de Especialidades Clínicas
           </div>
           <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-brand-navy tracking-tight">
@@ -48,7 +48,7 @@ export default function Services() {
             return (
               <div
                 key={service.id}
-                className={`bg-white rounded-2xl p-7 border border-slate-200/90 shadow-clinical hover:shadow-clinical-hover transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 ${
+                className={`bg-white rounded-2xl p-7 border border-slate-200 shadow-clinical hover:shadow-clinical-hover transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 ${
                   index === 0 ? "lg:col-span-1" : ""
                 }`}
               >
@@ -56,15 +56,15 @@ export default function Services() {
                   {/* Card Header: Icon & Badge */}
                   <div className="flex items-center justify-between mb-5">
                     <div className="w-12 h-12 rounded-xl bg-sky-50 border border-sky-100 flex items-center justify-center group-hover:bg-brand-navy group-hover:text-white transition-colors duration-200">
-                      {iconMap[service.icon] || <FileCheck className="w-6 h-6 text-brand-cyan" />}
+                      {iconMap[service.icon] || <FileCheck className="w-6 h-6 text-brand-royal" />}
                     </div>
-                    <span className="text-[11px] font-bold tracking-wider px-2.5 py-1 rounded bg-slate-100 text-slate-700">
+                    <span className="text-[11px] font-bold tracking-wider px-2.5 py-1 rounded bg-slate-100 text-brand-navy">
                       {service.badge}
                     </span>
                   </div>
 
                   {/* Title & Description */}
-                  <h3 className="font-heading font-bold text-xl text-brand-navy mb-3 group-hover:text-brand-cyan transition-colors">
+                  <h3 className="font-heading font-bold text-xl text-brand-navy mb-3 group-hover:text-brand-royal transition-colors">
                     {service.title}
                   </h3>
                   <p className="text-sm text-slate-600 mb-6 leading-relaxed">
@@ -98,7 +98,7 @@ export default function Services() {
                   </a>
                   <Link
                     href="#contacto"
-                    className="text-xs text-slate-500 hover:text-brand-navy transition-colors"
+                    className="text-xs text-brand-royal hover:underline font-semibold transition-colors"
                   >
                     Cotizar
                   </Link>
@@ -107,29 +107,29 @@ export default function Services() {
             );
           })}
 
-          {/* 6th Card: Custom Consulting Request Banner */}
-          <div className="bg-gradient-to-br from-brand-navy via-slate-900 to-brand-midnight text-white rounded-2xl p-7 flex flex-col justify-between shadow-clinical">
+          {/* 6th Card: Custom Consulting Request Banner with Brand Navy/Royal Styling */}
+          <div className="bg-gradient-to-br from-brand-dark via-brand-navy to-brand-royal text-white rounded-2xl p-7 flex flex-col justify-between shadow-clinical">
             <div>
-              <div className="inline-block px-3 py-1 rounded-full bg-sky-500/20 text-sky-300 text-xs font-semibold mb-4 border border-sky-400/30">
+              <div className="inline-block px-3 py-1 rounded-full bg-white/10 text-sky-200 text-xs font-semibold mb-4 border border-white/20">
                 PROYECTOS A MEDIDA
               </div>
               <h3 className="font-heading font-bold text-2xl mb-3 text-white">
                 ¿Su institución tiene un reto específico?
               </h3>
-              <p className="text-sm text-slate-300 leading-relaxed mb-6">
+              <p className="text-sm text-slate-200 leading-relaxed mb-6">
                 Evaluamos auditorías forenses, planes directores de informática médica, peritajes o proyectos de transformación institucional de gran escala.
               </p>
-              <ul className="space-y-2 text-xs text-slate-300 mb-6">
+              <ul className="space-y-2 text-xs text-slate-200 mb-6">
                 <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-teal-400" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-teal-300" />
                   <span>Diagnóstico institucional confidencial sin costo</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-teal-400" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-teal-300" />
                   <span>Consultores con experiencia médica y directiva</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-teal-400" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-teal-300" />
                   <span>Cobertura presencial y remota en toda la región</span>
                 </li>
               </ul>
@@ -137,7 +137,7 @@ export default function Services() {
 
             <Link
               href="#contacto"
-              className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-brand-cyan to-teal-500 hover:from-sky-500 hover:to-teal-600 text-white font-semibold text-sm text-center shadow-md transition-all hover:shadow-lg"
+              className="w-full py-3 px-4 rounded-xl bg-white text-brand-navy hover:bg-slate-100 font-bold text-sm text-center shadow-md transition-all hover:scale-[1.02]"
             >
               Solicitar Reunión de Diagnóstico
             </Link>

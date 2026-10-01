@@ -8,7 +8,6 @@ import {
   ExternalLink,
   Eye,
   X,
-  PlayCircle,
   FileCheck,
 } from "lucide-react";
 
@@ -17,20 +16,22 @@ export default function BrochureBanner() {
 
   return (
     <section id="brochure" className="py-20 bg-slate-100 relative overflow-hidden">
-      {/* Background accents */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="rounded-3xl bg-gradient-to-br from-brand-navy via-slate-900 to-brand-midnight text-white p-8 sm:p-14 relative overflow-hidden shadow-clinical-xl">
-          {/* Decorative ambient gradient */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-80 h-80 bg-teal-500/10 rounded-full blur-3xl pointer-events-none" />
+        {/* Banner with institutional background treatment */}
+        <div className="rounded-3xl bg-gradient-to-br from-brand-dark via-brand-navy to-brand-royal text-white p-8 sm:p-14 relative overflow-hidden shadow-clinical-xl">
+          {/* Subtle watermark layer */}
+          <div
+            className="absolute inset-0 opacity-15 bg-cover bg-center pointer-events-none"
+            style={{ backgroundImage: `url('/hero-bg.jpg')` }}
+          />
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-10">
             
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6">
               
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 text-sky-200 text-xs font-semibold backdrop-blur-xs border border-white/10">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 text-sky-200 text-xs font-semibold backdrop-blur-xs border border-white/15">
                 <FileCheck className="w-4 h-4 text-teal-300" />
                 <span>Documento Institucional Oficial • Formato PDF</span>
               </div>
@@ -39,7 +40,7 @@ export default function BrochureBanner() {
                 Conozca nuestro portafolio completo de consultoría médica
               </h2>
 
-              <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-xl">
+              <p className="text-slate-200 text-sm sm:text-base leading-relaxed max-w-xl">
                 Descargue el brochure corporativo con el marco metodológico detallado, programas de auditoría clínica, interoperabilidad HL7/FHIR y casos de éxito en instituciones de salud.
               </p>
 
@@ -49,26 +50,26 @@ export default function BrochureBanner() {
                   href={SITE_DATA.brochureDownloadUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-brand-cyan hover:bg-sky-500 text-white font-semibold text-sm sm:text-base shadow-md transition-all hover:scale-105"
+                  className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-white text-brand-navy hover:bg-slate-100 font-bold text-sm sm:text-base shadow-md transition-all hover:scale-105"
                 >
-                  <Download className="w-5 h-5" />
+                  <Download className="w-5 h-5 text-brand-royal" />
                   <span>Descargar Brochure PDF</span>
                 </a>
 
                 {/* View inside page / Modal button */}
                 <button
                   onClick={() => setShowPreviewModal(true)}
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-sm sm:text-base backdrop-blur-xs border border-white/20 transition-colors"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-sm sm:text-base backdrop-blur-xs border border-white/25 transition-colors"
                 >
                   <Eye className="w-5 h-5 text-teal-300" />
                   <span>Previsualizar en Pantalla</span>
                 </button>
               </div>
 
-              <div className="flex items-center gap-6 pt-4 text-xs text-slate-400">
-                <span>✓ Acceso libre y sin registro</span>
-                <span>✓ Actualizado 2025</span>
-                <span>✓ Compatible con móviles y tablets</span>
+              <div className="flex items-center gap-6 pt-4 text-xs text-slate-300">
+                <span>✓ Acceso libre y directo</span>
+                <span>✓ Edición Institucional 2025</span>
+                <span>✓ Primum Non Nocere</span>
               </div>
 
             </div>
@@ -92,8 +93,12 @@ export default function BrochureBanner() {
 
                 {/* Document Visual Body */}
                 <div className="py-8 text-center space-y-4">
-                  <div className="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-tr from-sky-400 to-teal-400 flex items-center justify-center text-brand-navy shadow-lg group-hover:scale-110 transition-transform">
-                    <FileText className="w-8 h-8 stroke-[2.2]" />
+                  <div className="w-16 h-16 mx-auto rounded-2xl bg-white flex items-center justify-center p-2 shadow-lg group-hover:scale-110 transition-transform">
+                    <img
+                      src="/logo.jpg"
+                      alt="Logo SnowPoint Healthcare"
+                      className="w-full h-auto object-contain"
+                    />
                   </div>
                   <div>
                     <h3 className="text-white font-bold text-lg font-heading">

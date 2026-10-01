@@ -6,7 +6,6 @@ import {
   Mail,
   MessageSquare,
   Send,
-  Building,
   CheckCircle,
   Copy,
   Check,
@@ -43,7 +42,6 @@ export default function ContactSection() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Sin base de datos: Prepara correo directo mediante mailto con datos codificados
     const subject = encodeURIComponent(
       `Consulta Web: ${formData.service} - ${formData.institution || formData.name}`
     );
@@ -57,7 +55,6 @@ export default function ContactSection() {
       `Mensaje / Requerimiento:\n${formData.message}\n`
     );
 
-    // Abre el cliente de correo del usuario sin requerir backend
     window.location.href = `mailto:${SITE_DATA.email}?subject=${subject}&body=${body}`;
 
     setTimeout(() => {
@@ -72,8 +69,8 @@ export default function ContactSection() {
         
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-bold uppercase tracking-wider border border-emerald-200">
-            <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-50 text-brand-royal text-xs font-bold uppercase tracking-wider border border-sky-200">
+            <Sparkles className="w-3.5 h-3.5 text-brand-royal" />
             Canales de Contacto Directo
           </div>
           <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-brand-navy tracking-tight">
@@ -90,7 +87,7 @@ export default function ContactSection() {
           <div className="lg:col-span-5 space-y-6">
             
             {/* WhatsApp Direct Card */}
-            <div className="rounded-2xl p-6 bg-gradient-to-br from-emerald-500 to-teal-700 text-white shadow-lg space-y-4">
+            <div className="rounded-2xl p-6 bg-gradient-to-br from-emerald-600 to-teal-800 text-white shadow-lg space-y-4">
               <div className="flex items-center justify-between">
                 <span className="text-xs uppercase tracking-wider font-semibold text-emerald-100">
                   Respuesta Inmediata
@@ -112,7 +109,7 @@ export default function ContactSection() {
                 href={whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2.5 w-full py-3.5 px-4 rounded-xl bg-white text-emerald-800 hover:bg-emerald-50 font-bold text-sm shadow-md transition-all hover:scale-[1.02]"
+                className="inline-flex items-center justify-center gap-2.5 w-full py-3.5 px-4 rounded-xl bg-white text-emerald-900 hover:bg-emerald-50 font-bold text-sm shadow-md transition-all hover:scale-[1.02]"
               >
                 <MessageSquare className="w-5 h-5 fill-current text-emerald-600" />
                 <span>Abrir Chat de WhatsApp</span>
@@ -120,9 +117,9 @@ export default function ContactSection() {
             </div>
 
             {/* Email Card */}
-            <div className="rounded-2xl p-6 bg-slate-50 border border-slate-200/90 shadow-2xs space-y-4">
+            <div className="rounded-2xl p-6 bg-slate-50 border border-slate-200 shadow-2xs space-y-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg bg-sky-100 text-brand-cyan flex items-center justify-center">
+                <div className="w-10 h-10 rounded-lg bg-sky-100 text-brand-royal flex items-center justify-center">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
@@ -131,7 +128,7 @@ export default function ContactSection() {
                   </div>
                   <a
                     href={`mailto:${SITE_DATA.email}`}
-                    className="text-base font-bold text-brand-navy hover:text-brand-cyan transition-colors"
+                    className="text-base font-bold text-brand-navy hover:text-brand-royal transition-colors"
                   >
                     {SITE_DATA.email}
                   </a>
@@ -141,7 +138,7 @@ export default function ContactSection() {
               <div className="flex items-center gap-2 pt-2">
                 <a
                   href={`mailto:${SITE_DATA.email}`}
-                  className="flex-1 text-center py-2 px-3 rounded-lg border border-slate-300 text-xs font-semibold text-slate-700 hover:bg-white hover:border-slate-400 transition-colors"
+                  className="flex-1 text-center py-2 px-3 rounded-lg border border-slate-300 text-xs font-semibold text-slate-700 hover:bg-white hover:border-brand-royal hover:text-brand-royal transition-colors"
                 >
                   Escribir correo
                 </a>
@@ -167,23 +164,23 @@ export default function ContactSection() {
             </div>
 
             {/* Confidentiality & Ethics Card */}
-            <div className="rounded-2xl p-6 bg-slate-50 border border-slate-200/90 text-slate-600 text-xs space-y-3">
+            <div className="rounded-2xl p-6 bg-slate-50 border border-slate-200 text-slate-600 text-xs space-y-3">
               <div className="flex items-center gap-2 text-brand-navy font-bold text-sm">
-                <Shield className="w-4 h-4 text-brand-teal" />
-                <span>Confidencialidad y Ética Médica</span>
+                <Shield className="w-4 h-4 text-brand-royal" />
+                <span>Ética Médica: Primum Non Nocere</span>
               </div>
               <p className="leading-relaxed text-slate-600">
                 Toda la información institucional y clínica compartida con SnowPoint Healthcare está protegida bajo rigurosos acuerdos de confidencialidad (NDA) y estándares de secreto profesional médico.
               </p>
               <div className="flex items-center gap-1.5 text-slate-500 pt-1">
-                <Clock className="w-3.5 h-3.5 text-brand-cyan" />
+                <Clock className="w-3.5 h-3.5 text-brand-royal" />
                 <span>Tiempo promedio de respuesta: menos de 24 horas hábiles.</span>
               </div>
             </div>
 
           </div>
 
-          {/* Right Column: Direct Contact Form (Without Database) */}
+          {/* Right Column: Direct Contact Form */}
           <div className="lg:col-span-7">
             <div className="bg-white rounded-3xl p-8 sm:p-10 border border-slate-200 shadow-clinical">
               <div className="mb-6">
@@ -239,7 +236,7 @@ export default function ContactSection() {
                         placeholder="Dr. Juan Pérez"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-cyan focus:ring-2 focus:ring-sky-100 text-sm outline-hidden transition-all"
+                        className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-royal focus:ring-2 focus:ring-sky-100 text-sm outline-hidden transition-all"
                       />
                     </div>
 
@@ -254,7 +251,7 @@ export default function ContactSection() {
                         placeholder="direccion@clinica.com"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-cyan focus:ring-2 focus:ring-sky-100 text-sm outline-hidden transition-all"
+                        className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-royal focus:ring-2 focus:ring-sky-100 text-sm outline-hidden transition-all"
                       />
                     </div>
                   </div>
@@ -271,7 +268,7 @@ export default function ContactSection() {
                         placeholder="+591 ..."
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-cyan focus:ring-2 focus:ring-sky-100 text-sm outline-hidden transition-all"
+                        className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-royal focus:ring-2 focus:ring-sky-100 text-sm outline-hidden transition-all"
                       />
                     </div>
 
@@ -285,7 +282,7 @@ export default function ContactSection() {
                         placeholder="Hospital / Clínica / Aseguradora"
                         value={formData.institution}
                         onChange={(e) => setFormData({ ...formData, institution: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-cyan focus:ring-2 focus:ring-sky-100 text-sm outline-hidden transition-all"
+                        className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-royal focus:ring-2 focus:ring-sky-100 text-sm outline-hidden transition-all"
                       />
                     </div>
                   </div>
@@ -298,7 +295,7 @@ export default function ContactSection() {
                     <select
                       value={formData.service}
                       onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-cyan focus:ring-2 focus:ring-sky-100 text-sm outline-hidden bg-white transition-all text-slate-700"
+                      className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-royal focus:ring-2 focus:ring-sky-100 text-sm outline-hidden bg-white transition-all text-slate-700"
                     >
                       {SITE_DATA.services.map((s) => (
                         <option key={s.id} value={s.title}>
@@ -322,7 +319,7 @@ export default function ContactSection() {
                       placeholder="Describa brevemente las necesidades de su institución, objetivos de mejora o dudas técnicas..."
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-cyan focus:ring-2 focus:ring-sky-100 text-sm outline-hidden transition-all resize-none"
+                      className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-royal focus:ring-2 focus:ring-sky-100 text-sm outline-hidden transition-all resize-none"
                     />
                   </div>
 
@@ -330,7 +327,7 @@ export default function ContactSection() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-4 px-6 rounded-xl bg-brand-navy hover:bg-slate-900 text-white font-bold text-base shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70"
+                    className="w-full py-4 px-6 rounded-xl bg-brand-navy hover:bg-brand-royal text-white font-bold text-base shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70"
                   >
                     <Send className="w-4 h-4" />
                     <span>{isSubmitting ? "Enviando..." : "Enviar Consulta Directa"}</span>

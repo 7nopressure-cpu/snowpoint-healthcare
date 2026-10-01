@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { SITE_DATA } from "@/data/content";
 import {
-  Shield,
   Mail,
   FileText,
   ExternalLink,
@@ -11,26 +10,26 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-brand-midnight text-slate-300 border-t border-slate-800">
+    <footer className="bg-brand-dark text-slate-300 border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 pb-12 border-b border-slate-800">
           
-          {/* Brand Info (2 cols) */}
+          {/* Brand Info with Official Logo */}
           <div className="lg:col-span-2 space-y-4">
-            <Link href="#inicio" className="flex items-center gap-3 group">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-cyan to-brand-teal flex items-center justify-center text-white shadow-md">
-                <Shield className="w-5 h-5" />
-              </div>
-              <div className="flex flex-col">
-                <span className="font-heading font-extrabold text-lg text-white">
-                  SnowPoint <span className="text-brand-cyan">Healthcare</span>
-                </span>
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider">
-                  Consultoría Especializada en Salud
-                </span>
+            <Link href="#inicio" className="inline-block group">
+              <div className="bg-white p-2.5 rounded-xl shadow-md inline-block">
+                <img
+                  src="/logo.jpg"
+                  alt="SnowPoint Healthcare - Primum Non Nocere"
+                  className="h-11 w-auto object-contain"
+                />
               </div>
             </Link>
+
+            <div className="text-xs font-serif italic text-teal-300 tracking-wider">
+              PRIMVM NON NOCERE — Primero, no hacer daño
+            </div>
 
             <p className="text-sm text-slate-400 leading-relaxed max-w-sm">
               {SITE_DATA.tagline}. Acompañamos a organizaciones sanitarias, clínicas, hospitales y aseguradoras en la mejora de sus estándares clínicos, auditoría médica y modernización tecnológica.
@@ -40,7 +39,7 @@ export default function Footer() {
               <div>📍 Bolivia & Cobertura Regional en Latinoamérica</div>
               <div className="flex items-center gap-1.5 text-sky-300">
                 <Mail className="w-3.5 h-3.5" />
-                <a href={`mailto:${SITE_DATA.email}`} className="hover:underline">
+                <a href={`mailto:${SITE_DATA.email}`} className="hover:underline font-medium">
                   {SITE_DATA.email}
                 </a>
               </div>
@@ -55,7 +54,7 @@ export default function Footer() {
             <ul className="space-y-2 text-xs sm:text-sm">
               {SITE_DATA.services.map((s) => (
                 <li key={s.id}>
-                  <Link href="#servicios" className="hover:text-white transition-colors">
+                  <Link href="#servicios" className="hover:text-sky-300 transition-colors">
                     {s.title}
                   </Link>
                 </li>
@@ -70,17 +69,17 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 text-xs sm:text-sm">
               <li>
-                <Link href="#inicio" className="hover:text-white transition-colors">
+                <Link href="#inicio" className="hover:text-sky-300 transition-colors">
                   Inicio
                 </Link>
               </li>
               <li>
-                <Link href="#servicios" className="hover:text-white transition-colors">
+                <Link href="#servicios" className="hover:text-sky-300 transition-colors">
                   Cartera de Especialidades
                 </Link>
               </li>
               <li>
-                <Link href="#nosotros" className="hover:text-white transition-colors">
+                <Link href="#nosotros" className="hover:text-sky-300 transition-colors">
                   Por qué elegirnos
                 </Link>
               </li>
@@ -89,14 +88,14 @@ export default function Footer() {
                   href={SITE_DATA.brochureUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-white transition-colors flex items-center gap-1 text-teal-300"
+                  className="hover:text-teal-300 transition-colors flex items-center gap-1 text-teal-400 font-medium"
                 >
                   <FileText className="w-3.5 h-3.5" />
                   <span>Brochure Institucional (PDF)</span>
                 </a>
               </li>
               <li>
-                <Link href="#contacto" className="hover:text-white transition-colors">
+                <Link href="#contacto" className="hover:text-sky-300 transition-colors">
                   Contacto Directo
                 </Link>
               </li>
@@ -109,7 +108,7 @@ export default function Footer() {
               Redes Sociales
             </h4>
             <p className="text-xs text-slate-400">
-              Síganos en nuestros canales oficiales:
+              Canales oficiales de SnowPoint Healthcare:
             </p>
             <div className="flex flex-col space-y-2 text-xs sm:text-sm">
               {SITE_DATA.socials.map((soc) => (
@@ -118,7 +117,7 @@ export default function Footer() {
                   href={soc.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-brand-cyan transition-colors flex items-center gap-1.5"
+                  className="hover:text-sky-300 transition-colors flex items-center gap-1.5"
                 >
                   <span>{soc.name}</span>
                   <ExternalLink className="w-3 h-3 text-slate-500" />
@@ -130,16 +129,16 @@ export default function Footer() {
         </div>
 
         {/* Bottom Copyright & Compliance */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
           <div>
             © {currentYear} SnowPoint Healthcare. Todos los derechos reservados.
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 text-slate-400">
             <span>Interoperabilidad HL7 & FHIR</span>
             <span>•</span>
             <span>Estándares JCI e ISO</span>
             <span>•</span>
-            <span>Despliegue Estático en Vercel</span>
+            <span className="font-serif italic text-teal-300">Primum Non Nocere</span>
           </div>
         </div>
 

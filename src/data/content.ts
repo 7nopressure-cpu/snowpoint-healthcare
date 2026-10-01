@@ -22,15 +22,17 @@ export interface SocialLink {
 
 export const SITE_DATA = {
   name: "SnowPoint Healthcare",
+  motto: "Primum Non Nocere",
   tagline: "Asesoría y Consultoría Especializada en Servicios de Salud",
   metaDescription: "Consultoría médica y sanitaria de alto nivel: Auditoría Médica, Transformación Digital (HL7/FHIR), Acreditación Hospitalaria, Ingeniería de Datos y Seguridad del Paciente en Bolivia y Latinoamérica.",
   email: "info@SnowPointHealthcare.com",
-  phone: "+591 777 00000", // Número WhatsApp configurable
+  phone: "+591 777 00000",
   whatsappNumber: "59177700000",
   whatsappDefaultMessage: "Hola SnowPoint Healthcare, me comunico desde la web y deseo solicitar una asesoría especializada para mi institución de salud.",
   brochureUrl: "https://drive.google.com/file/d/1dCNw9YGSoJIUOpVwDTOBC0J-vsu5bJeW/view",
   brochureDownloadUrl: "https://drive.google.com/uc?id=1dCNw9YGSoJIUOpVwDTOBC0J-vsu5bJeW&export=download",
-  logoUrl: "https://lh7-us.googleusercontent.com/sitesv-images-rt/AMxu72tQhN7gAXLy5SLNfL8hQKhdBU-CwQt7SY7XSCrjxxXaTKnEgun8ClhmHAvAG3gjg-G8BalOu4wh97bLYcttJm2PU__CelnHLyB70jnf5_oSSNM-BOuMbnWRfqcQ9H9A7ZwRz5QZsdzqWUAo6IZ_2vSmYDuRiJ2bUfpJX9JK8b5FaQiHV317ikjtDxx-pU-BeB-GcfKInODv2YWnI-zDA8nAzj3LxDZwgYYctyd80G8=w1280",
+  logoUrl: "/logo.jpg",
+  heroBgUrl: "/hero-bg.jpg",
   
   socials: [
     {
