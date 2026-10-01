@@ -10,6 +10,8 @@ import {
   Sparkles,
   ArrowRight,
   Shield,
+  Server,
+  Zap,
 } from "lucide-react";
 
 export default function Hero() {
@@ -18,181 +20,234 @@ export default function Hero() {
   )}`;
 
   return (
-    <section id="inicio" className="relative overflow-hidden pt-14 pb-20 lg:pt-24 lg:pb-32 text-white">
-      {/* Background Image image_e13e0a4c with institutional overlay */}
+    <section id="inicio" className="relative overflow-hidden pt-16 pb-24 lg:pt-28 lg:pb-36 bg-brand-darkest text-white">
+      {/* 1. Base Layer: Solid, deep corporate navy foundation ensuring 100% WCAG AAA readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#000B1A] via-[#001433] to-[#001D4A] -z-30" />
+
+      {/* 2. Institutional Wallpaper Layer (image_e13e0a4c.jpg) with controlled opacity */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat -z-20"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-15 mix-blend-luminosity pointer-events-none -z-20"
         style={{ backgroundImage: `url('/hero-bg.jpg')` }}
       />
-      {/* High-elegance dark gradient overlay allowing the watermark crest pattern to remain visible */}
-      <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/95 via-brand-navy/90 to-brand-royal/75 -z-10" />
 
-      {/* Decorative ambient radial glows */}
-      <div className="absolute top-1/4 left-10 w-96 h-96 bg-brand-royal/20 rounded-full blur-3xl pointer-events-none -z-10" />
-      <div className="absolute bottom-10 right-10 w-80 h-80 bg-sky-500/15 rounded-full blur-3xl pointer-events-none -z-10" />
+      {/* 3. Tech grid overlay for medical-grade precision */}
+      <div className="absolute inset-0 tech-grid-pattern opacity-40 pointer-events-none -z-10" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      {/* 4. Ambient Sapphire/Cyan glowing coronas */}
+      <div className="absolute -top-32 left-1/4 w-[500px] h-[500px] bg-brand-cobalt/25 rounded-full blur-[140px] pointer-events-none -z-10" />
+      <div className="absolute bottom-0 right-10 w-[450px] h-[450px] bg-brand-royal/30 rounded-full blur-[120px] pointer-events-none -z-10" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
           
-          {/* Left Column: Core Messaging */}
-          <div className="lg:col-span-7 flex flex-col items-start space-y-6">
+          {/* ================= LEFT COLUMN: HERO VALUE PROPOSITION ================= */}
+          <div className="lg:col-span-7 flex flex-col items-start space-y-7">
             
-            {/* Latin Motto Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sky-200 text-xs sm:text-sm font-semibold shadow-sm">
-              <span className="font-serif italic font-bold tracking-wider text-teal-300">
+            {/* Latin Motto & Institutional Distinction Badge (Maximum Contrast) */}
+            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[#001E4D]/90 border border-sky-400/40 text-white shadow-glow-blue backdrop-blur-md">
+              <span className="flex h-2 w-2 relative">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-sky-300" />
+              </span>
+              <span className="font-serif italic font-extrabold tracking-widest text-sky-200 text-xs sm:text-sm uppercase">
                 PRIMVM NON NOCERE
               </span>
-              <span className="text-white/40">•</span>
-              <span>Consultoría Médica de Alta Autoridad</span>
+              <span className="text-sky-400/60 font-mono">|</span>
+              <span className="text-xs sm:text-sm font-semibold text-slate-200">
+                Auditoría y Consultoría en Salud
+              </span>
             </div>
 
-            {/* Main Headline */}
-            <h1 className="font-heading font-extrabold text-3xl sm:text-5xl lg:text-6xl text-white tracking-tight leading-[1.12]">
+            {/* Main Headline (Ultra-Legible, Punchy, High Authority) */}
+            <h1 className="font-heading font-extrabold text-3xl sm:text-5xl lg:text-[3.75rem] text-white tracking-tight leading-[1.12]">
               Innovación y Rigor en la{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 via-teal-200 to-sky-100">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 via-sky-100 to-teal-200 drop-shadow-sm">
                 Gestión de Salud
               </span>
             </h1>
 
-            {/* Subtitle */}
-            <p className="text-base sm:text-lg text-slate-200 leading-relaxed max-w-2xl font-normal">
-              {SITE_DATA.tagline}. Brindamos soluciones estratégicas en{" "}
-              <strong className="text-white font-semibold">Auditoría Médica</strong>,{" "}
-              <strong className="text-white font-semibold">Transformación Digital e Interoperabilidad (HL7 / FHIR)</strong>,{" "}
-              e implementación de estándares de <strong className="text-white font-semibold">Seguridad del Paciente</strong> para clínicas, hospitales y aseguradoras en Bolivia y Latinoamérica.
+            {/* Subtitle with guaranteed WCAG AAA Contrast */}
+            <p className="text-base sm:text-lg text-slate-200 leading-relaxed max-w-2xl font-normal drop-shadow-xs">
+              <strong className="text-white font-semibold">{SITE_DATA.tagline}</strong>. Acompañamos a hospitales, clínicas y aseguradoras sanitarias en{" "}
+              <span className="text-sky-200 font-semibold underline decoration-sky-400/40 underline-offset-4">Auditoría Médica Concurrente</span>,{" "}
+              <span className="text-sky-200 font-semibold underline decoration-sky-400/40 underline-offset-4">Transformación Digital e Interoperabilidad (HL7 / FHIR)</span>{" "}
+              y programas de <span className="text-sky-200 font-semibold underline decoration-sky-400/40 underline-offset-4">Seguridad del Paciente</span> con cobertura en Bolivia y Latinoamérica.
             </p>
 
-            {/* Primary CTAs */}
+            {/* Harmonized Action Buttons (No raw generic green dominating) */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto pt-2">
+              
+              {/* Primary Action Button: Royal Blue with WhatsApp Badge */}
               <a
                 href={whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-base shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center gap-3 px-7 py-4 rounded-xl bg-gradient-to-r from-brand-cobalt via-brand-blue to-brand-royal hover:from-brand-blue hover:to-sky-500 text-white font-bold text-base shadow-glow-blue hover:shadow-lg transition-all duration-200 hover:-translate-y-0.5 border border-sky-300/30"
               >
-                <MessageSquare className="w-5 h-5 fill-current" />
+                <div className="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-300">
+                  <MessageSquare className="w-4 h-4 fill-current" />
+                </div>
                 <span>Conversar por WhatsApp</span>
+                <ArrowRight className="w-4 h-4 text-sky-200" />
               </a>
 
+              {/* Secondary Action Button: Institutional Frosted Glass */}
               <a
                 href={SITE_DATA.brochureUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-base backdrop-blur-md border border-white/25 shadow-sm transition-all"
+                className="inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl bg-white/10 hover:bg-white/15 text-white font-semibold text-base backdrop-blur-md border border-white/25 hover:border-sky-300/50 shadow-sm transition-all duration-200"
               >
                 <FileDown className="w-5 h-5 text-sky-300" />
-                <span>Ver Brochure Institucional (PDF)</span>
+                <span>Brochure Institucional (PDF)</span>
               </a>
             </div>
 
-            {/* Micro-Trust Checkpoints */}
-            <div className="pt-6 border-t border-white/15 w-full grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs sm:text-sm text-slate-300 font-medium">
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-teal-400 shrink-0" />
-                <span>Auditorías Clínicas</span>
+            {/* Bottom Descriptive Checkpoints (100% High Contrast) */}
+            <div className="pt-6 border-t border-white/15 w-full grid grid-cols-2 sm:grid-cols-3 gap-4 text-xs sm:text-sm font-medium text-slate-200">
+              <div className="flex items-center gap-2.5 bg-white/5 p-2.5 rounded-lg border border-white/10 backdrop-blur-xs">
+                <CheckCircle2 className="w-4 h-4 text-sky-300 shrink-0" />
+                <span className="text-slate-100 font-semibold">Auditoría Clínica</span>
               </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-teal-400 shrink-0" />
-                <span>Estándares HL7 & FHIR</span>
+              <div className="flex items-center gap-2.5 bg-white/5 p-2.5 rounded-lg border border-white/10 backdrop-blur-xs">
+                <CheckCircle2 className="w-4 h-4 text-teal-300 shrink-0" />
+                <span className="text-slate-100 font-semibold">Servidor HL7 / FHIR</span>
               </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-teal-400 shrink-0" />
-                <span>Seguridad Hospitalaria</span>
+              <div className="flex items-center gap-2.5 bg-white/5 p-2.5 rounded-lg border border-white/10 backdrop-blur-xs col-span-2 sm:col-span-1">
+                <CheckCircle2 className="w-4 h-4 text-sky-300 shrink-0" />
+                <span className="text-slate-100 font-semibold">Acreditación JCI & ISO</span>
               </div>
             </div>
 
           </div>
 
-          {/* Right Column: Clinical Intelligence Card with Crest & Glass Styling */}
+          {/* ================= RIGHT COLUMN: PREMIUM TECH-MEDICAL COCKPIT ================= */}
           <div className="lg:col-span-5 relative">
             <div className="relative mx-auto max-w-md lg:max-w-none">
               
-              {/* Outer decorative halo */}
-              <div className="absolute -inset-1.5 bg-gradient-to-r from-sky-400/30 to-teal-400/30 rounded-2xl blur-xl opacity-75" />
+              {/* Diffuse Outer Ambient Glow */}
+              <div className="absolute -inset-2 bg-gradient-to-tr from-brand-cobalt/40 via-sky-500/20 to-teal-400/20 rounded-3xl blur-2xl opacity-80 pointer-events-none" />
 
-              {/* Main Card with Glassmorphic styling */}
-              <div className="relative bg-white/95 backdrop-blur-xl rounded-2xl border border-white/40 shadow-2xl p-6 space-y-5 text-slate-800">
+              {/* Glassmorphic Clinical Cockpit Card */}
+              <div className="relative glass-card-dark rounded-2xl p-6 sm:p-7 space-y-5 text-white">
                 
-                {/* Card Header: Official Logo Crest */}
-                <div className="flex items-center justify-between pb-4 border-b border-slate-200">
+                {/* Cockpit Top Bar */}
+                <div className="flex items-center justify-between pb-4 border-b border-white/15">
                   <div className="flex items-center gap-3">
-                    <img
-                      src="/logo.jpg"
-                      alt="SnowPoint Healthcare Crest"
-                      className="h-9 w-auto object-contain"
-                    />
+                    <div className="bg-white p-1 rounded-lg shadow-sm">
+                      <img
+                        src="/logo.jpg"
+                        alt="SnowPoint Healthcare"
+                        className="h-8 w-auto object-contain"
+                      />
+                    </div>
                     <div>
-                      <h2 className="text-xs font-bold text-brand-navy">Tablero Clínico Digital</h2>
-                      <p className="text-[10px] font-serif italic text-brand-royal font-semibold">
-                        PRIMVM NON NOCERE
+                      <h2 className="text-xs font-bold text-white tracking-wide">
+                        Tablero Clínico Digital
+                      </h2>
+                      <p className="text-[10px] font-mono text-sky-300 tracking-wider">
+                        SISTEMA TELEMÉTRICO v4.2
                       </p>
                     </div>
                   </div>
-                  <span className="px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200 flex items-center gap-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                    En Línea
+                  
+                  {/* Status Indicator */}
+                  <span className="px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 text-xs font-mono font-bold flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                    ACTIVO
                   </span>
                 </div>
 
-                {/* Key Clinical Stats Grid */}
-                <div className="grid grid-cols-2 gap-3">
-                  <div className="bg-slate-50 rounded-xl p-3.5 border border-slate-100">
-                    <div className="flex items-center justify-between text-slate-500 text-xs mb-1">
-                      <span>Pertinencia Médica</span>
-                      <TrendingUp className="w-4 h-4 text-brand-royal" />
+                {/* Quantitative Metric Gauges Grid */}
+                <div className="grid grid-cols-2 gap-3.5">
+                  {/* Gauge 1 */}
+                  <div className="bg-[#00173D]/80 rounded-xl p-4 border border-white/10 shadow-inner">
+                    <div className="flex items-center justify-between text-slate-300 text-xs mb-1.5">
+                      <span className="font-semibold text-slate-200">Pertinencia Médica</span>
+                      <TrendingUp className="w-4 h-4 text-sky-400" />
                     </div>
-                    <div className="text-2xl font-bold text-brand-navy">99.4%</div>
-                    <p className="text-[11px] text-slate-500 mt-0.5">Conformidad en Cuentas</p>
+                    <div className="text-2xl sm:text-3xl font-extrabold font-heading text-white">
+                      99.4%
+                    </div>
+                    <p className="text-[11px] text-sky-200/80 mt-1 font-mono">
+                      Conformidad de Cuentas
+                    </p>
                   </div>
 
-                  <div className="bg-slate-50 rounded-xl p-3.5 border border-slate-100">
-                    <div className="flex items-center justify-between text-slate-500 text-xs mb-1">
-                      <span>Seguridad Paciente</span>
-                      <ShieldCheck className="w-4 h-4 text-brand-teal" />
+                  {/* Gauge 2 */}
+                  <div className="bg-[#00173D]/80 rounded-xl p-4 border border-white/10 shadow-inner">
+                    <div className="flex items-center justify-between text-slate-300 text-xs mb-1.5">
+                      <span className="font-semibold text-slate-200">Seguridad Paciente</span>
+                      <ShieldCheck className="w-4 h-4 text-teal-400" />
                     </div>
-                    <div className="text-2xl font-bold text-brand-teal">0.02‰</div>
-                    <p className="text-[11px] text-slate-500 mt-0.5">Eventos Adversos Prevenidos</p>
+                    <div className="text-2xl sm:text-3xl font-extrabold font-heading text-teal-300">
+                      0.02‰
+                    </div>
+                    <p className="text-[11px] text-teal-200/80 mt-1 font-mono">
+                      Eventos Mitigados
+                    </p>
                   </div>
                 </div>
 
-                {/* FHIR Interoperability Module */}
-                <div className="rounded-xl bg-gradient-to-r from-brand-navy via-brand-royal to-brand-midnight text-white p-4 space-y-2.5 shadow-md">
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="font-semibold text-sky-200">Servidor HL7 / FHIR v4</span>
-                    <span className="font-mono text-teal-300 text-[11px]">LATENCIA: 12ms</span>
+                {/* Primary Telemetry Module: Servidor HL7 / FHIR v4 */}
+                <div className="rounded-xl bg-gradient-to-br from-brand-navy via-brand-royal to-brand-cobalt border border-sky-400/30 p-4 space-y-3 shadow-lg">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <Server className="w-4 h-4 text-sky-300" />
+                      <span className="text-xs font-bold text-white tracking-wide">
+                        Servidor HL7 / FHIR v4
+                      </span>
+                    </div>
+                    <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-sky-400/20 text-sky-200 border border-sky-400/30">
+                      LATENCIA: 12ms
+                    </span>
                   </div>
+                  
                   <p className="text-xs text-slate-200 leading-relaxed">
-                    Integración fluida de Historias Clínicas Electrónicas (HIS), Laboratorio (LIS) y Diagnóstico por Imagen.
+                    Integración bidireccional segura entre Sistemas de Gestión Hospitalaria (HIS), Laboratorio (LIS) y Registro Clínico Electrónico.
                   </p>
-                  <div className="w-full bg-brand-dark rounded-full h-1.5 overflow-hidden">
-                    <div className="bg-gradient-to-r from-sky-400 to-teal-400 h-full w-[95%] rounded-full" />
+
+                  <div className="space-y-1">
+                    <div className="flex justify-between text-[10px] font-mono text-sky-200">
+                      <span>Rendimiento de Conectividad</span>
+                      <span>99.98% SLA</span>
+                    </div>
+                    <div className="w-full bg-[#001026] rounded-full h-1.5 overflow-hidden">
+                      <div className="bg-gradient-to-r from-sky-400 via-teal-300 to-sky-200 h-full w-[96%] rounded-full shadow-glow-cyan" />
+                    </div>
                   </div>
                 </div>
 
-                {/* Audit Checkpoints */}
+                {/* Checkpoint rows */}
                 <div className="space-y-2">
-                  <div className="flex items-center justify-between p-2.5 rounded-lg bg-slate-50 text-xs border border-slate-100">
-                    <div className="flex items-center gap-2 text-slate-700">
-                      <CheckCircle2 className="w-4 h-4 text-brand-teal" />
-                      <span className="font-medium">Trazabilidad Farmacológica & Auditoría</span>
+                  <div className="flex items-center justify-between p-2.5 rounded-lg bg-white/5 border border-white/10 text-xs">
+                    <div className="flex items-center gap-2 text-slate-200">
+                      <CheckCircle2 className="w-4 h-4 text-teal-300 shrink-0" />
+                      <span className="font-medium">Trazabilidad Farmacológica y Dosis</span>
                     </div>
-                    <span className="font-bold text-emerald-700">100% OK</span>
+                    <span className="font-mono font-bold text-teal-300">100% OK</span>
                   </div>
 
-                  <div className="flex items-center justify-between p-2.5 rounded-lg bg-slate-50 text-xs border border-slate-100">
-                    <div className="flex items-center gap-2 text-slate-700">
-                      <CheckCircle2 className="w-4 h-4 text-brand-royal" />
-                      <span className="font-medium">Protocolo Acreditación JCI / ISO</span>
+                  <div className="flex items-center justify-between p-2.5 rounded-lg bg-white/5 border border-white/10 text-xs">
+                    <div className="flex items-center gap-2 text-slate-200">
+                      <CheckCircle2 className="w-4 h-4 text-sky-300 shrink-0" />
+                      <span className="font-medium">Protocolos Acreditación Hospitalaria</span>
                     </div>
-                    <span className="font-bold text-brand-royal">Certificable</span>
+                    <span className="font-mono font-bold text-sky-300">FASE 4/4</span>
                   </div>
                 </div>
 
-                {/* Floating Bottom Pill */}
-                <div className="pt-2 flex items-center justify-between text-xs text-slate-500 border-t border-slate-100">
-                  <span>+240,000 episodios médicos analizados</span>
-                  <Link href="#servicios" className="text-brand-royal hover:underline font-semibold flex items-center gap-1">
-                    Ver servicios <ArrowRight className="w-3 h-3" />
+                {/* Cockpit Footer */}
+                <div className="pt-2 flex items-center justify-between text-xs text-slate-300 border-t border-white/15">
+                  <span className="font-mono text-[11px] text-slate-300">
+                    +240,000 episodios médicos analizados
+                  </span>
+                  <Link
+                    href="#servicios"
+                    className="text-sky-300 hover:text-white font-semibold flex items-center gap-1 transition-colors"
+                  >
+                    <span>Explorar</span>
+                    <ArrowRight className="w-3 h-3" />
                   </Link>
                 </div>
 

@@ -12,6 +12,7 @@ import {
   Shield,
   Clock,
   Sparkles,
+  ArrowRight,
 } from "lucide-react";
 
 export default function ContactSection() {
@@ -64,66 +65,71 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contacto" className="py-20 lg:py-28 bg-white relative">
+    <section id="contacto" className="py-24 lg:py-32 bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-50 text-brand-royal text-xs font-bold uppercase tracking-wider border border-sky-200">
+        <div className="max-w-3xl mx-auto text-center mb-20 space-y-4">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-navy/5 text-brand-royal text-xs font-bold uppercase tracking-wider border border-brand-royal/15">
             <Sparkles className="w-3.5 h-3.5 text-brand-royal" />
             Canales de Contacto Directo
           </div>
-          <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-brand-navy tracking-tight">
+          <h2 className="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-brand-navy tracking-tight">
             Iniciemos una Asesoría Estratégica
           </h2>
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
-            Comuníquese directamente con nuestro equipo de consultores médicos para coordinar una reunión de diagnóstico institucional.
+            Comuníquese directamente con nuestro equipo de consultores médicos para coordinar una reunión de diagnóstico institucional confidencial.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
-          {/* Left Column: Direct Contact Methods & Trust */}
+          {/* Left Column: Direct Contact Methods & Trust in Corporate Blue */}
           <div className="lg:col-span-5 space-y-6">
             
-            {/* WhatsApp Direct Card */}
-            <div className="rounded-2xl p-6 bg-gradient-to-br from-emerald-600 to-teal-800 text-white shadow-lg space-y-4">
-              <div className="flex items-center justify-between">
-                <span className="text-xs uppercase tracking-wider font-semibold text-emerald-100">
-                  Respuesta Inmediata
+            {/* WhatsApp Card: Corporate Royal Blue Harmony */}
+            <div className="rounded-2xl p-7 bg-gradient-to-br from-brand-darkest via-brand-navy to-brand-royal text-white shadow-clinical border border-white/10 space-y-5 relative overflow-hidden">
+              <div className="absolute inset-0 tech-grid-pattern opacity-15 pointer-events-none" />
+
+              <div className="relative z-10 flex items-center justify-between">
+                <span className="text-xs uppercase tracking-widest font-mono font-bold text-sky-300">
+                  COMUNICACIÓN DIRECTA
                 </span>
-                <span className="flex items-center gap-1.5 text-xs bg-white/20 px-2.5 py-0.5 rounded-full font-medium">
-                  <span className="w-2 h-2 rounded-full bg-white animate-ping" />
-                  Disponible
+                <span className="flex items-center gap-1.5 text-xs bg-white/15 px-2.5 py-0.5 rounded-full font-mono text-emerald-300 border border-emerald-400/30">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+                  EN LÍNEA
                 </span>
               </div>
-              <div>
-                <h3 className="text-xl font-bold font-heading">
+              
+              <div className="relative z-10">
+                <h3 className="text-xl font-bold font-heading text-white">
                   Atención Directa por WhatsApp
                 </h3>
-                <p className="text-sm text-emerald-50 mt-1">
-                  Chatee al instante con un consultor para consultas rápidas, agendamiento de reuniones y presupuestos.
+                <p className="text-sm text-slate-200 mt-1 leading-relaxed">
+                  Conéctese al instante con un consultor médico para consultas institucionales, presupuesto y agenda directiva.
                 </p>
               </div>
+
               <a
                 href={whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2.5 w-full py-3.5 px-4 rounded-xl bg-white text-emerald-900 hover:bg-emerald-50 font-bold text-sm shadow-md transition-all hover:scale-[1.02]"
+                className="relative z-10 inline-flex items-center justify-center gap-2.5 w-full py-4 px-4 rounded-xl bg-white hover:bg-sky-50 text-brand-navy font-bold text-sm shadow-md transition-all hover:scale-[1.01]"
               >
                 <MessageSquare className="w-5 h-5 fill-current text-emerald-600" />
-                <span>Abrir Chat de WhatsApp</span>
+                <span>Abrir Conversación en WhatsApp</span>
+                <ArrowRight className="w-4 h-4 text-brand-royal" />
               </a>
             </div>
 
             {/* Email Card */}
             <div className="rounded-2xl p-6 bg-slate-50 border border-slate-200 shadow-2xs space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg bg-sky-100 text-brand-royal flex items-center justify-center">
-                  <Mail className="w-5 h-5" />
+              <div className="flex items-center gap-3.5">
+                <div className="w-12 h-12 rounded-xl bg-sky-100 text-brand-royal flex items-center justify-center shadow-xs">
+                  <Mail className="w-6 h-6" />
                 </div>
                 <div>
-                  <div className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
+                  <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">
                     Correo Corporativo
                   </div>
                   <a
@@ -138,14 +144,14 @@ export default function ContactSection() {
               <div className="flex items-center gap-2 pt-2">
                 <a
                   href={`mailto:${SITE_DATA.email}`}
-                  className="flex-1 text-center py-2 px-3 rounded-lg border border-slate-300 text-xs font-semibold text-slate-700 hover:bg-white hover:border-brand-royal hover:text-brand-royal transition-colors"
+                  className="flex-1 text-center py-2.5 px-3 rounded-xl border border-slate-300 text-xs font-bold text-slate-700 hover:bg-white hover:border-brand-royal hover:text-brand-royal transition-colors"
                 >
                   Escribir correo
                 </a>
                 <button
                   type="button"
                   onClick={handleCopyEmail}
-                  className="py-2 px-3 rounded-lg border border-slate-300 text-xs font-semibold text-slate-700 hover:bg-white flex items-center gap-1.5 transition-colors"
+                  className="py-2.5 px-4 rounded-xl border border-slate-300 text-xs font-bold text-slate-700 hover:bg-white flex items-center gap-1.5 transition-colors"
                   title="Copiar email al portapapeles"
                 >
                   {copiedEmail ? (
@@ -174,7 +180,7 @@ export default function ContactSection() {
               </p>
               <div className="flex items-center gap-1.5 text-slate-500 pt-1">
                 <Clock className="w-3.5 h-3.5 text-brand-royal" />
-                <span>Tiempo promedio de respuesta: menos de 24 horas hábiles.</span>
+                <span>Tiempo de respuesta habitual: menos de 24 horas hábiles.</span>
               </div>
             </div>
 
@@ -182,26 +188,26 @@ export default function ContactSection() {
 
           {/* Right Column: Direct Contact Form */}
           <div className="lg:col-span-7">
-            <div className="bg-white rounded-3xl p-8 sm:p-10 border border-slate-200 shadow-clinical">
-              <div className="mb-6">
-                <h3 className="font-heading font-bold text-2xl text-brand-navy">
+            <div className="bg-white rounded-3xl p-8 sm:p-11 border border-slate-200 shadow-clinical">
+              <div className="mb-8">
+                <h3 className="font-heading font-extrabold text-2xl sm:text-3xl text-brand-navy">
                   Formulario de Contacto Directo
                 </h3>
-                <p className="text-sm text-slate-500 mt-1">
+                <p className="text-sm text-slate-500 mt-2">
                   Complete los datos a continuación para enviar su requerimiento a{" "}
                   <strong className="text-brand-navy">{SITE_DATA.email}</strong>.
                 </p>
               </div>
 
               {isSubmitted ? (
-                <div className="p-8 rounded-2xl bg-emerald-50 border border-emerald-200 text-center space-y-4 animate-in fade-in">
-                  <div className="w-14 h-14 mx-auto rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center">
+                <div className="p-8 rounded-2xl bg-sky-50 border border-sky-200 text-center space-y-4 animate-in fade-in">
+                  <div className="w-14 h-14 mx-auto rounded-full bg-brand-royal text-white flex items-center justify-center">
                     <CheckCircle className="w-8 h-8" />
                   </div>
-                  <h4 className="text-xl font-bold text-emerald-900 font-heading">
+                  <h4 className="text-xl font-bold text-brand-navy font-heading">
                     ¡Solicitud Preparada con Éxito!
                   </h4>
-                  <p className="text-sm text-emerald-800 leading-relaxed max-w-md mx-auto">
+                  <p className="text-sm text-slate-700 leading-relaxed max-w-md mx-auto">
                     Se ha iniciado el envío de su consulta hacia nuestro correo oficial. Si su cliente de correo no se abrió automáticamente, puede escribirnos directamente a{" "}
                     <strong>{SITE_DATA.email}</strong> o por WhatsApp.
                   </p>
@@ -210,13 +216,13 @@ export default function ContactSection() {
                       href={whatsappHref}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-5 py-2.5 rounded-lg bg-emerald-600 text-white font-semibold text-sm hover:bg-emerald-700 transition-colors"
+                      className="px-6 py-3 rounded-xl bg-gradient-to-r from-brand-navy to-brand-royal text-white font-bold text-sm shadow-md"
                     >
                       Continuar por WhatsApp
                     </a>
                     <button
                       onClick={() => setIsSubmitted(false)}
-                      className="px-4 py-2.5 rounded-lg border border-emerald-300 text-emerald-900 text-sm font-semibold hover:bg-emerald-100/50"
+                      className="px-4 py-3 rounded-xl border border-slate-300 text-slate-800 text-sm font-semibold hover:bg-white"
                     >
                       Enviar otra consulta
                     </button>
@@ -236,7 +242,7 @@ export default function ContactSection() {
                         placeholder="Dr. Juan Pérez"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-royal focus:ring-2 focus:ring-sky-100 text-sm outline-hidden transition-all"
+                        className="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:border-brand-royal focus:ring-2 focus:ring-sky-100 text-sm outline-hidden transition-all"
                       />
                     </div>
 
@@ -251,7 +257,7 @@ export default function ContactSection() {
                         placeholder="direccion@clinica.com"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-royal focus:ring-2 focus:ring-sky-100 text-sm outline-hidden transition-all"
+                        className="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:border-brand-royal focus:ring-2 focus:ring-sky-100 text-sm outline-hidden transition-all"
                       />
                     </div>
                   </div>
@@ -268,7 +274,7 @@ export default function ContactSection() {
                         placeholder="+591 ..."
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-royal focus:ring-2 focus:ring-sky-100 text-sm outline-hidden transition-all"
+                        className="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:border-brand-royal focus:ring-2 focus:ring-sky-100 text-sm outline-hidden transition-all"
                       />
                     </div>
 
@@ -282,7 +288,7 @@ export default function ContactSection() {
                         placeholder="Hospital / Clínica / Aseguradora"
                         value={formData.institution}
                         onChange={(e) => setFormData({ ...formData, institution: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-royal focus:ring-2 focus:ring-sky-100 text-sm outline-hidden transition-all"
+                        className="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:border-brand-royal focus:ring-2 focus:ring-sky-100 text-sm outline-hidden transition-all"
                       />
                     </div>
                   </div>
@@ -295,7 +301,7 @@ export default function ContactSection() {
                     <select
                       value={formData.service}
                       onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-royal focus:ring-2 focus:ring-sky-100 text-sm outline-hidden bg-white transition-all text-slate-700"
+                      className="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:border-brand-royal focus:ring-2 focus:ring-sky-100 text-sm outline-hidden bg-white transition-all text-slate-800 font-medium"
                     >
                       {SITE_DATA.services.map((s) => (
                         <option key={s.id} value={s.title}>
@@ -319,7 +325,7 @@ export default function ContactSection() {
                       placeholder="Describa brevemente las necesidades de su institución, objetivos de mejora o dudas técnicas..."
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-royal focus:ring-2 focus:ring-sky-100 text-sm outline-hidden transition-all resize-none"
+                      className="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:border-brand-royal focus:ring-2 focus:ring-sky-100 text-sm outline-hidden transition-all resize-none"
                     />
                   </div>
 
@@ -327,10 +333,10 @@ export default function ContactSection() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-4 px-6 rounded-xl bg-brand-navy hover:bg-brand-royal text-white font-bold text-base shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70"
+                    className="w-full py-4 px-6 rounded-xl bg-gradient-to-r from-brand-navy via-brand-royal to-brand-cobalt hover:from-brand-royal hover:to-brand-blue text-white font-bold text-base shadow-md hover:shadow-glow-blue transition-all flex items-center justify-center gap-2.5 cursor-pointer disabled:opacity-70"
                   >
                     <Send className="w-4 h-4" />
-                    <span>{isSubmitting ? "Enviando..." : "Enviar Consulta Directa"}</span>
+                    <span>{isSubmitting ? "Preparando envío..." : "Enviar Consulta Directa"}</span>
                   </button>
 
                   <p className="text-[11px] text-center text-slate-400 mt-2">

@@ -13,12 +13,12 @@ export default function WhatsAppButton() {
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex items-end flex-col gap-2">
-      {/* Optional Speech Bubble */}
+      {/* Speech Bubble Styled with High Contrast */}
       {showTooltip && (
-        <div className="bg-white border border-slate-200 text-slate-800 text-xs py-2 px-3.5 rounded-2xl shadow-xl flex items-center gap-2 max-w-xs animate-in fade-in slide-in-from-bottom-2 duration-300">
+        <div className="bg-white border border-slate-200 text-slate-800 text-xs py-2.5 px-4 rounded-2xl shadow-xl flex items-center gap-2 max-w-xs animate-in fade-in slide-in-from-bottom-2 duration-300">
           <div className="flex flex-col">
-            <span className="font-bold text-emerald-700">¿Asesoría médica o técnica?</span>
-            <span className="text-[11px] text-slate-500">Respondemos al instante por WhatsApp</span>
+            <span className="font-bold text-brand-navy">¿Requiere asesoría sanitaria?</span>
+            <span className="text-[11px] text-slate-500">Atención médica directa por WhatsApp</span>
           </div>
           <button
             onClick={() => setShowTooltip(false)}
@@ -30,17 +30,20 @@ export default function WhatsAppButton() {
         </div>
       )}
 
-      {/* Floating Action Button */}
+      {/* Floating Action Button: Harmonized Corporate Royal/Navy with emerald indicator */}
       <a
         href={whatsappHref}
         target="_blank"
         rel="noopener noreferrer"
-        className="w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white flex items-center justify-center shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-110 active:scale-95 group relative"
+        className="w-14 h-14 rounded-full bg-gradient-to-tr from-brand-navy via-brand-royal to-brand-cobalt text-white flex items-center justify-center shadow-xl hover:shadow-glow-blue transition-all duration-300 hover:scale-110 active:scale-95 group relative border-2 border-white/60"
         aria-label="Contactar por WhatsApp"
       >
+        {/* Subtle emerald live status pip */}
         <span className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-emerald-400 rounded-full border-2 border-white animate-ping" />
         <span className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-emerald-400 rounded-full border-2 border-white" />
-        <MessageSquare className="w-7 h-7 fill-current group-hover:rotate-6 transition-transform" />
+        
+        {/* WhatsApp Icon */}
+        <MessageSquare className="w-6 h-6 fill-current text-white group-hover:rotate-6 transition-transform" />
       </a>
     </div>
   );

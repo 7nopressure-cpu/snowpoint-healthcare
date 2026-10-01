@@ -4,8 +4,9 @@
 
 @layer base {
   :root {
-    --background: 249 249 255;
-    --foreground: 17 28 45;
+    --brand-navy: #001D4A;
+    --brand-royal: #003882;
+    --brand-blue: #0047AB;
   }
 
   html {
@@ -14,23 +15,41 @@
 
   body {
     background-color: #F8FAFC;
-    color: #1E293B;
+    color: #0F172A;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
-.clinical-gradient {
-  background: linear-gradient(135deg, #0F2A4A 0%, #00152F 60%, #083344 100%);
+/* Glassmorphism primitives */
+.glass-card-dark {
+  background: rgba(0, 20, 52, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 20px 40px -15px rgba(0, 13, 30, 0.6), inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
 }
 
-.subtle-grid {
-  background-image: radial-gradient(rgba(15, 42, 74, 0.08) 1px, transparent 1px);
-  background-size: 24px 24px;
-}
-
-.glass-panel {
-  background: rgba(255, 255, 255, 0.85);
+.glass-card-light {
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(226, 232, 240, 0.8);
+  border: 1px solid rgba(203, 213, 225, 0.8);
+  box-shadow: 0 10px 30px -5px rgba(0, 29, 74, 0.06), inset 0 1px 0 0 rgba(255, 255, 255, 1);
+}
+
+/* Subtle tech grid pattern */
+.tech-grid-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.tech-grid-pattern-light {
+  background-image: 
+    linear-gradient(to right, rgba(0, 43, 102, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 43, 102, 0.03) 1px, transparent 1px);
+  background-size: 32px 32px;
 }
