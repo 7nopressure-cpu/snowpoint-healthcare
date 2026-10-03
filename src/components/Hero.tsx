@@ -1,4 +1,5 @@
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { SITE_DATA } from "@/data/content";
 import {
   MessageSquare,
@@ -13,6 +14,11 @@ import {
   Server,
   Zap,
 } from "lucide-react";
+
+// Native Three.js 3D Particle Scene (SSR: false for client-side WebGL canvas)
+const HeroBackground3D = dynamic(() => import("./HeroBackground3D"), {
+  ssr: false,
+});
 
 export default function Hero() {
   const whatsappHref = `https://wa.me/${SITE_DATA.whatsappNumber}?text=${encodeURIComponent(
@@ -36,6 +42,10 @@ export default function Hero() {
       {/* 4. Ambient Sapphire/Cyan glowing coronas */}
       <div className="absolute -top-32 left-1/4 w-[500px] h-[500px] bg-brand-cobalt/25 rounded-full blur-[140px] pointer-events-none -z-10" />
       <div className="absolute bottom-0 right-10 w-[450px] h-[450px] bg-brand-royal/30 rounded-full blur-[120px] pointer-events-none -z-10" />
+
+      {/* 5. Interactive 3D Three.js Fluid Particle Sphere (Zero external dependencies) */}
+      <HeroBackground3D />
+
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
