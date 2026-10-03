@@ -15,7 +15,12 @@ import {
   Zap,
 } from "lucide-react";
 
-// Native Three.js 3D Particle Scene (SSR: false for client-side WebGL canvas)
+// Native Three.js 3D Particle Sphere Stage (SSR: false for client-side WebGL canvas)
+const HeroSphere3D = dynamic(() => import("./HeroSphere3D"), {
+  ssr: false,
+});
+
+// Native Three.js Background Fluid Wave Particles
 const HeroBackground3D = dynamic(() => import("./HeroBackground3D"), {
   ssr: false,
 });
@@ -26,31 +31,31 @@ export default function Hero() {
   )}`;
 
   return (
-    <section id="inicio" className="relative overflow-hidden pt-16 pb-24 lg:pt-28 lg:pb-36 bg-brand-darkest text-white">
-      {/* 1. Base Layer: Solid, deep corporate navy foundation ensuring 100% WCAG AAA readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#000B1A] via-[#001433] to-[#001D4A] -z-30" />
+    <section id="inicio" className="relative overflow-hidden pt-16 pb-24 lg:pt-28 lg:pb-36 text-white">
+      {/* Layer 1: Solid, deep corporate navy foundation ensuring 100% WCAG AAA readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#000B1A] via-[#001433] to-[#001D4A] z-0" />
 
-      {/* 2. Institutional Wallpaper Layer (image_e13e0a4c.jpg) with controlled opacity */}
+      {/* Layer 2: Institutional Wallpaper Layer (image_e13e0a4c.jpg) with controlled opacity */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-15 mix-blend-luminosity pointer-events-none -z-20"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-15 mix-blend-luminosity pointer-events-none z-[1]"
         style={{ backgroundImage: `url('/hero-bg.jpg')` }}
       />
 
-      {/* 3. Tech grid overlay for medical-grade precision */}
-      <div className="absolute inset-0 tech-grid-pattern opacity-40 pointer-events-none -z-10" />
+      {/* Layer 3: Tech grid overlay for medical-grade precision */}
+      <div className="absolute inset-0 tech-grid-pattern opacity-30 pointer-events-none z-[2]" />
 
-      {/* 4. Ambient Sapphire/Cyan glowing coronas */}
-      <div className="absolute -top-32 left-1/4 w-[500px] h-[500px] bg-brand-cobalt/25 rounded-full blur-[140px] pointer-events-none -z-10" />
-      <div className="absolute bottom-0 right-10 w-[450px] h-[450px] bg-brand-royal/30 rounded-full blur-[120px] pointer-events-none -z-10" />
+      {/* Layer 4: Ambient Sapphire/Cyan glowing coronas */}
+      <div className="absolute -top-32 left-1/4 w-[500px] h-[500px] bg-brand-cobalt/25 rounded-full blur-[140px] pointer-events-none z-[3]" />
+      <div className="absolute bottom-0 right-10 w-[450px] h-[450px] bg-brand-royal/30 rounded-full blur-[120px] pointer-events-none z-[3]" />
 
-      {/* 5. Interactive 3D Three.js Fluid Particle Sphere (Zero external dependencies) */}
+      {/* Layer 5: Interactive 3D Fluid Particle Field across entire Hero */}
       <HeroBackground3D />
 
-
+      {/* Layer 6: Main Content Container */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
-          {/* ================= LEFT COLUMN: HERO VALUE PROPOSITION ================= */}
+          {/* ================= LEFT COLUMN: VALUE PROPOSITION ================= */}
           <div className="lg:col-span-7 flex flex-col items-start space-y-7">
             
             {/* Latin Motto & Institutional Distinction Badge (Maximum Contrast) */}
@@ -68,7 +73,7 @@ export default function Hero() {
               </span>
             </div>
 
-            {/* Main Headline (Ultra-Legible, Punchy, High Authority) */}
+            {/* Main Headline */}
             <h1 className="font-heading font-extrabold text-3xl sm:text-5xl lg:text-[3.75rem] text-white tracking-tight leading-[1.12]">
               Innovación y Rigor en la{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 via-sky-100 to-teal-200 drop-shadow-sm">
@@ -84,7 +89,7 @@ export default function Hero() {
               y programas de <span className="text-sky-200 font-semibold underline decoration-sky-400/40 underline-offset-4">Seguridad del Paciente</span> con cobertura en Bolivia y Latinoamérica.
             </p>
 
-            {/* Harmonized Action Buttons (No raw generic green dominating) */}
+            {/* Harmonized Action Buttons */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto pt-2">
               
               {/* Primary Action Button: Royal Blue with WhatsApp Badge */}
@@ -113,7 +118,7 @@ export default function Hero() {
               </a>
             </div>
 
-            {/* Bottom Descriptive Checkpoints (100% High Contrast) */}
+            {/* Bottom Descriptive Checkpoints */}
             <div className="pt-6 border-t border-white/15 w-full grid grid-cols-2 sm:grid-cols-3 gap-4 text-xs sm:text-sm font-medium text-slate-200">
               <div className="flex items-center gap-2.5 bg-white/5 p-2.5 rounded-lg border border-white/10 backdrop-blur-xs">
                 <CheckCircle2 className="w-4 h-4 text-sky-300 shrink-0" />
@@ -131,18 +136,18 @@ export default function Hero() {
 
           </div>
 
-          {/* ================= RIGHT COLUMN: PREMIUM TECH-MEDICAL COCKPIT ================= */}
+          {/* ================= RIGHT COLUMN: HOLOGRAPHIC 3D PARTICLE SPHERE & TELEMETRY STAGE ================= */}
           <div className="lg:col-span-5 relative">
-            <div className="relative mx-auto max-w-md lg:max-w-none">
+            <div className="relative mx-auto max-w-lg lg:max-w-none">
               
-              {/* Diffuse Outer Ambient Glow */}
-              <div className="absolute -inset-2 bg-gradient-to-tr from-brand-cobalt/40 via-sky-500/20 to-teal-400/20 rounded-3xl blur-2xl opacity-80 pointer-events-none" />
+              {/* Outer Radiant Glow */}
+              <div className="absolute -inset-3 bg-gradient-to-tr from-brand-cobalt/40 via-sky-500/25 to-teal-400/20 rounded-3xl blur-3xl opacity-90 pointer-events-none" />
 
-              {/* Glassmorphic Clinical Cockpit Card */}
-              <div className="relative glass-card-dark rounded-2xl p-6 sm:p-7 space-y-5 text-white">
+              {/* 3D Stage Container */}
+              <div className="relative rounded-3xl border border-sky-400/30 bg-[#00122e]/60 backdrop-blur-md overflow-hidden shadow-2xl p-4 sm:p-5">
                 
-                {/* Cockpit Top Bar */}
-                <div className="flex items-center justify-between pb-4 border-b border-white/15">
+                {/* 1. Cockpit Top Bar */}
+                <div className="flex items-center justify-between pb-3 border-b border-white/15 relative z-20">
                   <div className="flex items-center gap-3">
                     <div className="bg-white p-1 rounded-lg shadow-sm">
                       <img
@@ -156,51 +161,54 @@ export default function Hero() {
                         Tablero Clínico Digital
                       </h2>
                       <p className="text-[10px] font-mono text-sky-300 tracking-wider">
-                        SISTEMA TELEMÉTRICO v4.2
+                        SISTEMA TELEMÉTRICO HL7 / FHIR v4.2
                       </p>
                     </div>
                   </div>
                   
                   {/* Status Indicator */}
-                  <span className="px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 text-xs font-mono font-bold flex items-center gap-1.5">
+                  <span className="px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 text-xs font-mono font-bold flex items-center gap-1.5 shadow-sm">
                     <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                     ACTIVO
                   </span>
                 </div>
 
-                {/* Quantitative Metric Gauges Grid */}
-                <div className="grid grid-cols-2 gap-3.5">
-                  {/* Gauge 1 */}
-                  <div className="bg-[#00173D]/80 rounded-xl p-4 border border-white/10 shadow-inner">
-                    <div className="flex items-center justify-between text-slate-300 text-xs mb-1.5">
-                      <span className="font-semibold text-slate-200">Pertinencia Médica</span>
-                      <TrendingUp className="w-4 h-4 text-sky-400" />
+                {/* 2. DEDICATED 3D PARTICLE SPHERE VIEWPORT (Center Stage) */}
+                <div className="relative w-full h-[320px] sm:h-[360px] flex items-center justify-center my-1 overflow-hidden rounded-2xl bg-gradient-to-b from-[#000d24]/80 via-[#00173d]/40 to-[#000d24]/80 border border-sky-500/20">
+                  
+                  {/* Three.js 3D Particle Sphere Component */}
+                  <HeroSphere3D />
+
+                  {/* Floating Metric Badge 1: Pertinencia Médica */}
+                  <div className="absolute top-4 left-3 z-20 bg-[#001438]/85 backdrop-blur-md rounded-xl p-2.5 sm:p-3 border border-sky-400/30 shadow-xl flex items-center gap-2.5 animate-float-slow">
+                    <div className="p-1.5 rounded-lg bg-sky-500/20 text-sky-300">
+                      <TrendingUp className="w-4 h-4" />
                     </div>
-                    <div className="text-2xl sm:text-3xl font-extrabold font-heading text-white">
-                      99.4%
+                    <div>
+                      <div className="text-base sm:text-lg font-extrabold font-heading text-white">99.4%</div>
+                      <div className="text-[10px] font-mono text-sky-200">Pertinencia Médica</div>
                     </div>
-                    <p className="text-[11px] text-sky-200/80 mt-1 font-mono">
-                      Conformidad de Cuentas
-                    </p>
                   </div>
 
-                  {/* Gauge 2 */}
-                  <div className="bg-[#00173D]/80 rounded-xl p-4 border border-white/10 shadow-inner">
-                    <div className="flex items-center justify-between text-slate-300 text-xs mb-1.5">
-                      <span className="font-semibold text-slate-200">Seguridad Paciente</span>
-                      <ShieldCheck className="w-4 h-4 text-teal-400" />
+                  {/* Floating Metric Badge 2: Seguridad del Paciente */}
+                  <div className="absolute bottom-4 right-3 z-20 bg-[#001438]/85 backdrop-blur-md rounded-xl p-2.5 sm:p-3 border border-teal-400/30 shadow-xl flex items-center gap-2.5 animate-float-slow">
+                    <div className="p-1.5 rounded-lg bg-teal-500/20 text-teal-300">
+                      <ShieldCheck className="w-4 h-4" />
                     </div>
-                    <div className="text-2xl sm:text-3xl font-extrabold font-heading text-teal-300">
-                      0.02‰
+                    <div>
+                      <div className="text-base sm:text-lg font-extrabold font-heading text-teal-300">0.02‰</div>
+                      <div className="text-[10px] font-mono text-teal-200">Seguridad Paciente</div>
                     </div>
-                    <p className="text-[11px] text-teal-200/80 mt-1 font-mono">
-                      Eventos Mitigados
-                    </p>
+                  </div>
+
+                  {/* User Interaction Hint */}
+                  <div className="absolute bottom-2 left-3 z-20 text-[10px] font-mono text-sky-200/70 bg-black/40 px-2 py-0.5 rounded backdrop-blur-xs pointer-events-none">
+                    Esfera 3D interactiva &bull; Mueve el cursor
                   </div>
                 </div>
 
-                {/* Primary Telemetry Module: Servidor HL7 / FHIR v4 */}
-                <div className="rounded-xl bg-gradient-to-br from-brand-navy via-brand-royal to-brand-cobalt border border-sky-400/30 p-4 space-y-3 shadow-lg">
+                {/* 3. Primary Telemetry Module: Servidor HL7 / FHIR v4 */}
+                <div className="rounded-xl bg-gradient-to-br from-brand-navy via-brand-royal to-brand-cobalt border border-sky-400/30 p-3.5 space-y-2.5 shadow-lg relative z-20">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
                       <Server className="w-4 h-4 text-sky-300" />
@@ -213,8 +221,8 @@ export default function Hero() {
                     </span>
                   </div>
                   
-                  <p className="text-xs text-slate-200 leading-relaxed">
-                    Integración bidireccional segura entre Sistemas de Gestión Hospitalaria (HIS), Laboratorio (LIS) y Registro Clínico Electrónico.
+                  <p className="text-[11px] sm:text-xs text-slate-200 leading-relaxed">
+                    Integración bidireccional segura entre Sistemas Hospitalarios (HIS), Laboratorio (LIS) y Registro Clínico Electrónico.
                   </p>
 
                   <div className="space-y-1">
@@ -228,27 +236,8 @@ export default function Hero() {
                   </div>
                 </div>
 
-                {/* Checkpoint rows */}
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between p-2.5 rounded-lg bg-white/5 border border-white/10 text-xs">
-                    <div className="flex items-center gap-2 text-slate-200">
-                      <CheckCircle2 className="w-4 h-4 text-teal-300 shrink-0" />
-                      <span className="font-medium">Trazabilidad Farmacológica y Dosis</span>
-                    </div>
-                    <span className="font-mono font-bold text-teal-300">100% OK</span>
-                  </div>
-
-                  <div className="flex items-center justify-between p-2.5 rounded-lg bg-white/5 border border-white/10 text-xs">
-                    <div className="flex items-center gap-2 text-slate-200">
-                      <CheckCircle2 className="w-4 h-4 text-sky-300 shrink-0" />
-                      <span className="font-medium">Protocolos Acreditación Hospitalaria</span>
-                    </div>
-                    <span className="font-mono font-bold text-sky-300">FASE 4/4</span>
-                  </div>
-                </div>
-
-                {/* Cockpit Footer */}
-                <div className="pt-2 flex items-center justify-between text-xs text-slate-300 border-t border-white/15">
+                {/* 4. Cockpit Footer */}
+                <div className="pt-3 flex items-center justify-between text-xs text-slate-300 border-t border-white/15 relative z-20">
                   <span className="font-mono text-[11px] text-slate-300">
                     +240,000 episodios médicos analizados
                   </span>
